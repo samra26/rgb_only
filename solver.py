@@ -101,7 +101,7 @@ class Solver(object):
                 multi_fuse = 255 * pred
                 filename = os.path.join(self.config.test_folder, name[:-4] + '_convtran.png')
                 cv2.imwrite(filename, multi_fuse)
-                coarse_sal_rgb= F.interpolate(coarse_sal_rgb, tuple(im_size), mode='bilinear', align_corners=True)
+                '''coarse_sal_rgb= F.interpolate(coarse_sal_rgb, tuple(im_size), mode='bilinear', align_corners=True)
                 coarse_sal_rgbs = np.squeeze(torch.sigmoid(coarse_sal_rgb)).cpu().data.numpy()
                 #print(pred.shape)
                 coarse_sal_rgbs = (coarse_sal_rgbs - coarse_sal_rgbs.min()) / (coarse_sal_rgbs.max() - coarse_sal_rgbs.min() + 1e-8)
@@ -121,7 +121,7 @@ class Solver(object):
                 e_rgbd2 = (e_rgbd2 - e_rgbd2.min()) / (e_rgbd2.max() - e_rgbd2.min() + 1e-8)
                 multi_fuse_e_rgbd2 = 255 * e_rgbd2
                 filename_re = os.path.join(self.config.test_folder, name[:-4] + '_edge2.png')
-                cv2.imwrite(filename_re, multi_fuse_e_rgbd2)
+                cv2.imwrite(filename_re, multi_fuse_e_rgbd2)'''
                 '''#e_rgbd01 = F.interpolate(e_rgbd01, tuple(im_size), mode='bilinear', align_corners=True)
                 e_rgbd01 = np.squeeze(torch.sigmoid(Att[10])).cpu().data.numpy()
                 print(e_rgbd01.shape)
